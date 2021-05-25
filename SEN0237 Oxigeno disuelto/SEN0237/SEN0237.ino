@@ -30,8 +30,7 @@ uint16_t ADC_Raw;
 uint16_t ADC_Voltage;
 uint16_t DO;
 
-int16_t readDO(uint32_t voltage_mv, uint8_t temperature_c)
-{
+int16_t readDO(uint32_t voltage_mv, uint8_t temperature_c){
 #if TWO_POINT_CALIBRATION == 0
   uint16_t V_saturation = (uint32_t)CAL1_V + (uint32_t)35 * temperature_c - (uint32_t)CAL1_T * 35;
   return (voltage_mv * DO_Table[temperature_c] / V_saturation);
